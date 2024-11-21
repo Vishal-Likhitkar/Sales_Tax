@@ -1,13 +1,12 @@
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
+        ReceiptPrinter printer = new ReceiptPrinter();
 
         while (true) {
-            Receipt receipt = new Receipt();
+            ReceiptOperations receipt = new Receipt();
             System.out.println("Enter items for the receipt (or type 'done' to finish):");
 
             while (true) {
@@ -30,7 +29,7 @@ public class Main {
                 receipt.addItem(item);
             }
 
-            receipt.printReceipt();
+            printer.printReceipt(receipt);
             System.out.println("\nDo you want to process another receipt? (yes/no)");
             if (!scanner.nextLine().equalsIgnoreCase("yes")) {
                 break;
